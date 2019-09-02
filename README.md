@@ -1,20 +1,22 @@
 # Example
+
 [See example](https://bnbarak.github.io/split-panel)
 
 # Installation
+
 `npm i split-panel`
 
 # Usage
 
 ```javascript
-import SplitPane from 'SplitPane';
-````
+import SplitPanel from "SplitPanel";
+```
 
 ```javascript
-<SplitPane>
+<SplitPanel>
   <div>Left side</div>
   <div>Right side</div>
-</SplitPane>
+</SplitPanel>
 ```
 
 # Advanced Usage
@@ -31,35 +33,30 @@ const dividerStyle = {
   width: "2px"
 };
 
-const constraints = {
-  leftMaxWidth: 700,
-  leftMinWidth: 100,
-  rightMaxWidth: 700,
-  rightMinWidth: 50,
-  defaultLeftWidth: 600
-};
-
-<SplitPane
+<SplitPanel
   containerStyle={containerStyle}
   dividerStyle={dividerStyle}
-  {...constraints}
+  leftMaxWidth={700}
+  leftMinWidth={100}
+  rightMaxWidth={700}
+  rightMinWidth={50}
+  defaultLeftWidth={600}
 >
   <div>Left side</div>
   <div>Right side</div>
-</SplitPane>
+</SplitPanel>
 ```
 
-
-
 ## Props
+
 ##### leftMaxWidth ([number] default: `null`)
 
 Left panel maximum width in pixels
-    
+
 ##### leftMinWidth ([number], default: `null`)
 
 Left panel minimum width in pixels
-    
+
 ##### rightMaxWidth ([number] default: `null`)
 
 Right panel maximum width in pixels
@@ -87,11 +84,11 @@ Container's height in pixels
 
 ##### containerStyle ([object] default: `{}`)
 
-An object to  style the container, [example](https://bnbarak.github.io/split-panel/?path=/story/style--container)
+An object to style the container, [example](https://bnbarak.github.io/split-panel/?path=/story/style--container)
 
 ##### dividerStyle ([object] default: `{}`)
 
-An object to  style the divider, [example](https://bnbarak.github.io/split-panel/?path=/story/style--divider)
+An object to style the divider, [example](https://bnbarak.github.io/split-panel/?path=/story/style--divider)
 
 ##### onStart ([object] default: `() => {}`)
 
@@ -107,12 +104,13 @@ A callback being fire when the divider moves.
 
 ## Q&A
 
-* **What happen if I have conflicted constrains?** 
-`split-panel` respects all constrains equally. The user need to make sure that the constrains does not conflict. For example: 
-Here the `leftMinWidth` is bigger than the `leftMaxWidth`
+- **What happen if I have conflicted constrains?**
+  `split-panel` respects all constrains equally. The user need to make sure that the constrains does not conflict. For example:
+  Here the `leftMinWidth` is bigger than the `leftMaxWidth`
+
 ```javascript
 <SplitPane leftMaxWidth={200} leftMinWidth={300}>
   <div>a</div>
   <div>b</div>
 </SplitPane>
-```   
+```
