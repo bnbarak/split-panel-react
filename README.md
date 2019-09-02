@@ -38,17 +38,31 @@ Left panel default width in pixels
 
 Right panel default width in pixels
 
-##### defaultRatio: ([number] default: `null`)
+##### defaultRatio ([number] default: `null`)
 
 Default ration between the two side. Scale: 1-100;
-Example: `40` will set the width of the left panel to 40% of the container;
+Example: `40` will set the width of the left panel to 40% of the container
 
-##### height: ([number] default: `null`)
+##### height ([number] default: `null`)
 
 Container's height in pixels
 
-##### containerStyle: {},
-##### dividerStyle: {},
-##### onStart: () => {},
-##### onFinish: () => {},
-##### onChange: () => {}
+##### containerStyle ([object] default: `{}`)
+
+An object to  style the container, [example](https://bnbarak.github.io/split-panel/?path=/story/style--container)
+
+##### dividerStyle ([object] default: `{}`)
+
+An object to  style the divider, [example](https://bnbarak.github.io/split-panel/?path=/story/style--divider)
+
+##### onStart ([object] default: `() => {}`)
+
+A callback being fire when the divider starts moving
+
+##### onFinish ([object] default: `() => {}`)
+
+A callback being fire when on mouse up event from the divider.
+
+##### onChange: ([object] default: `({ratio, containerWidth, leftWidth, rightWisth) => {}`)
+
+A callback being fire when the divider moves.
