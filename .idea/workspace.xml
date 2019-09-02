@@ -53,7 +53,7 @@
           <entry key="dummy" value="4" />
           <entry key="js" value="6202" />
           <entry key="json" value="84" />
-          <entry key="md" value="778" />
+          <entry key="md" value="1183" />
           <entry key="txt" value="43" />
         </counts>
       </usages-collector>
@@ -61,8 +61,8 @@
         <counts>
           <entry key="CSS" value="1" />
           <entry key="JSON" value="84" />
-          <entry key="JavaScript" value="6205" />
-          <entry key="Markdown" value="775" />
+          <entry key="JavaScript" value="6216" />
+          <entry key="Markdown" value="1169" />
           <entry key="PLAIN_TEXT" value="47" />
         </counts>
       </usages-collector>
@@ -73,7 +73,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stories/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
+            <state relative-caret-position="134">
               <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
@@ -107,8 +107,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="386">
-                <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+              <first_editor relative-caret-position="353">
+                <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
               </first_editor>
               <second_editor />
             </state>
@@ -139,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stories/a-example.stories.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="30" column="52" lean-forward="true" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+            <state relative-caret-position="330">
+              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -206,7 +206,6 @@
         <option value="$PROJECT_DIR$/src/Panels.js" />
         <option value="$PROJECT_DIR$/stories/style.stories.js" />
         <option value="$PROJECT_DIR$/stories/example.stories.js" />
-        <option value="$PROJECT_DIR$/stories/a-example.stories.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/webpack.prod.js" />
@@ -215,6 +214,7 @@
         <option value="$PROJECT_DIR$/src/Container.js" />
         <option value="$PROJECT_DIR$/src/utils.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/stories/a-example.stories.js" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -308,7 +308,7 @@
       <option name="presentableId" value="Default" />
       <updated>1565827443227</updated>
       <workItem from="1565827444425" duration="12367000" />
-      <workItem from="1567354364125" duration="12935000" />
+      <workItem from="1567354364125" duration="13428000" />
     </task>
     <task id="LOCAL-00001" summary="working as a library">
       <created>1567456321314</created>
@@ -366,11 +366,32 @@
       <option name="project" value="LOCAL" />
       <updated>1567458998562</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="docs">
+      <created>1567459298859</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1567459298859</updated>
+    </task>
+    <task id="LOCAL-00010" summary="docs">
+      <created>1567459356407</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1567459356407</updated>
+    </task>
+    <task id="LOCAL-00011" summary="docs">
+      <created>1567459749043</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1567459749043</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25302000" />
+    <option name="totallyTimeSpent" value="25795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -539,23 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stories/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stories/a-example.stories.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="30" column="52" lean-forward="true" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stories/constrains.stories.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -573,11 +577,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/stories/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories/a-example.stories.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="386">
-            <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+          <first_editor relative-caret-position="353">
+            <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
           </first_editor>
           <second_editor />
         </state>

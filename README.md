@@ -39,7 +39,11 @@ const constraints = {
   defaultLeftWidth: 600
 };
 
-<SplitPane containerStyle={containerStyle} dividerStyle={dividerStyle} {...constraints}>
+<SplitPane
+  containerStyle={containerStyle}
+  dividerStyle={dividerStyle}
+  {...constraints}
+>
   <div>Left side</div>
   <div>Right side</div>
 </SplitPane>
