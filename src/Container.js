@@ -192,7 +192,8 @@ Container.defaultProps = {
   containerStyle: {},
   dividerStyle: {},
   onStart: () => {},
-  onFinish: () => {}
+  onFinish: () => {},
+	onChange: () => {}
 };
 
 export default Container;

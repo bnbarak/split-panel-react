@@ -1,7 +1,7 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import App from "../src/App";
+import App from "./App";
 
 storiesOf("Constrains", module).add("Left max width", () => (
   <App leftMaxWidth={200} defaultLeftWidth={100} />

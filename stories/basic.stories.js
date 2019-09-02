@@ -1,7 +1,7 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import App from "../src/App";
+import App from "./App";
 
 storiesOf("Basic", module).add("Default", () => <App />);
 storiesOf("Basic", module).add("Default ratio", () => (

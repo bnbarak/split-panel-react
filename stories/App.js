@@ -3,8 +3,8 @@ import styled from "styled-components";
 import JSONPretty from "react-json-pretty";
 import "react-json-pretty/themes/monikai.css";
 
-import "./App.css";
-import Container from "./Container";
+import "../src/App.css";
+import Container from "../src/Container";
 
 const AppContainer = styled.div`
   padding: 0;
@@ -22,6 +22,7 @@ const Json = styled(JSONPretty)`
   padding: 5px;
   margin-bottom: 30px;
   vertical-align: top;
+  min-height: 150px;
 
   .__json-pretty__ {
     padding: 5px;
