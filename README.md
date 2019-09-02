@@ -1,3 +1,6 @@
+# Example
+[See example](https://bnbarak.github.io/split-panel)
+
 # Installation
 `npm i split-panel`
 
