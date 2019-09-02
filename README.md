@@ -9,12 +9,43 @@
 ```javascript
 import SplitPane from 'SplitPane';
 ````
+
 ```javascript
 <SplitPane>
-  <div>a</div>
-  <div>b</div>
+  <div>Left side</div>
+  <div>Right side</div>
 </SplitPane>
 ```
+
+# Advanced Usage
+
+```javascript
+const containerStyle = {
+  height: "200px",
+  border: "1px solid #e0e0e0",
+  boxShadow: "0px 0px 6px -3px #8483DB"
+};
+
+const dividerStyle = {
+  background: "#ff90f9",
+  width: "2px"
+};
+
+const constraints = {
+  leftMaxWidth: 700,
+  leftMinWidth: 100,
+  rightMaxWidth: 700,
+  rightMinWidth: 50,
+  defaultLeftWidth: 600
+};
+
+<SplitPane containerStyle={containerStyle} dividerStyle={dividerStyle} {...constraints}>
+  <div>Left side</div>
+  <div>Right side</div>
+</SplitPane>
+```
+
+
 
 ## Props
 ##### leftMaxWidth ([number] default: `null`)
@@ -69,3 +100,15 @@ A callback being fire when on mouse up event from the divider.
 ##### onChange: ([object] default: `({ratio, containerWidth, leftWidth, rightWisth) => {}`)
 
 A callback being fire when the divider moves.
+
+## Q&A
+
+* **What happen if I have conflicted constrains?** 
+`split-panel` respects all constrains equally. The user need to make sure that the constrains does not conflict. For example: 
+Here the `leftMinWidth` is bigger than the `leftMaxWidth`
+```javascript
+<SplitPane leftMaxWidth={200} leftMinWidth={300}>
+  <div>a</div>
+  <div>b</div>
+</SplitPane>
+```   

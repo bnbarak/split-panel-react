@@ -14,7 +14,7 @@ const dividerStyle = {
   width: "2px"
 };
 
-const constrains = {
+const constraints = {
   leftMaxWidth: 700,
   leftMinWidth: 100,
   rightMaxWidth: 700,
@@ -23,7 +23,7 @@ const constrains = {
 };
 
 const props = {
-  ...constrains,
+  ...constraints,
   containerStyle,
   dividerStyle
 };
