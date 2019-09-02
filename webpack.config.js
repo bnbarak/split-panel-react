@@ -1,9 +1,9 @@
 var webpack = require("webpack");
 var path = require("path");
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: path.resolve(__dirname, "src/index.js"),
-	devtool: "cheap-eval-source-map",
 	output: {
     path: path.resolve(__dirname, "./lib"),
     filename: "index.js",
@@ -27,5 +27,8 @@ module.exports = {
       Utils: path.resolve(path.resolve(__dirname, "./src/utils/")),
       Classes: path.resolve(path.resolve(__dirname, "./src/classes/"))
     }
-  }
+  },
+	plugins: [
+		// new BundleAnalyzerPlugin()
+	]
 };

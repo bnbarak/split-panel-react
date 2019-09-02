@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import _ from "lodash";
+import debounce from "lodash/debounce";
 import ReactResizeDetector from "react-resize-detector";
 import { checkLimit, onChangeOutput } from "./utils";
 import Panels from "./Panels";
+import { MOUSE_MOVE_EVENT, MOUSE_UP_EVENT } from "Utils";
 
 const ContainerDiv = styled.div`
   position: relative;
@@ -18,13 +19,13 @@ class Container extends React.PureComponent {
       containerWidth: 0
     };
 
-    this.handleMouseMove = _.debounce(this.handleMouseMove, 5);
+    this.handleMouseMove = debounce(this.handleMouseMove, 5);
     this.mouseUpEvent = document.addEventListener(
-      "mouseup",
+      MOUSE_UP_EVENT,
       this.handleDragFinish
     );
     this.mouseMoveEvent = document.addEventListener(
-      "mousemove",
+      MOUSE_MOVE_EVENT,
       this.handleMouseMove
     );
     this.containerId = "some-id";
@@ -46,6 +47,10 @@ class Container extends React.PureComponent {
     }
 
     this.setState({ ratio });
+  }
+  componentWillUnmount() {
+    document.removeEventListener(MOUSE_UP_EVENT, this.handleDragFinish);
+    document.removeEventListener(MOUSE_MOVE_EVENT, this.handleMouseMove);
   }
 
   mousePositionOffsetContainerLeft = mousePosition => {
@@ -193,7 +198,7 @@ Container.defaultProps = {
   dividerStyle: {},
   onStart: () => {},
   onFinish: () => {},
-	onChange: () => {}
+  onChange: () => {}
 };
 
 export default Container;

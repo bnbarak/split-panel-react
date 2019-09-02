@@ -3,7 +3,6 @@ import styled from "styled-components";
 import JSONPretty from "react-json-pretty";
 import "react-json-pretty/themes/monikai.css";
 
-import "../src/App.css";
 import Container from "../src/Container";
 
 const AppContainer = styled.div`
