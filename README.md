@@ -14,10 +14,13 @@ import SplitPane from 'SplitPane';
 ```
 
 ## Props
-* leftMaxWidth **[number]**, default: *null*,
-    Left panel maximum width in pixel
+#### leftMaxWidth
+ > [number]**, default: *null*
+
+  Left panel maximum width in pixel
     
-*  leftMinWidth: **[number]**, default: *null*,
+####  leftMinWidth
+ > **[number]**, default: *null*,
     Left panel minimum width in pixel
     
 *  rightMaxWidth: null,
