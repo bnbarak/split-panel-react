@@ -1,25 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import styled from "styled-components";
+import JSONPretty from "react-json-pretty";
+import "react-json-pretty/themes/monikai.css";
 
-function App() {
+import "./App.css";
+import Container from "./Container";
+
+const AppContainer = styled.div`
+  padding: 0;
+  width: 100%;
+`;
+
+const Child = styled.div`
+  text-align: center;
+  height: 100%;
+`;
+
+const Json = styled(JSONPretty)`
+  width: 400px;
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 30px;
+  vertical-align: top;
+
+  .__json-pretty__ {
+    padding: 5px;
+  }
+`;
+
+const H3 = styled.h3`
+  margin: 0;
+`;
+
+function App(props) {
+  const [data, setData] = useState({});
+  const onStart = () => console.log("start");
+  const onFinish = () => console.log("finish");
+  const onChange = details => setData(details);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer className="App">
+      <Json id="json-pretty" data={props} />
+      <Json id="json-pretty" data={data} />
+      <Container
+        {...props}
+        onStart={onStart}
+        onFinish={onFinish}
+        onChange={onChange}
+      >
+        <Child style={{ background: "#eee" }}>Left side</Child>
+        <Child style={{ background: "#CFD8DC" }}>Right side</Child>
+      </Container>
+    </AppContainer>
   );
 }
 
