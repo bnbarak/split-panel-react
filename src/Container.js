@@ -16,10 +16,13 @@ class Container extends React.PureComponent {
     this.state = {
       isDrag: false,
       ratio: null,
-      containerWidth: 0
+      containerWidth: 0,
+      initialRender: true
     };
 
-    this.handleMouseMove = debounce(this.handleMouseMove, 5);
+    this.containerRef = React.createRef();
+
+    this.handleMouseMove = debounce(this.handleMouseMovePure, 5);
     this.mouseUpEvent = document.addEventListener(
       MOUSE_UP_EVENT,
       this.handleDragFinish
@@ -31,12 +34,8 @@ class Container extends React.PureComponent {
     this.containerId = "some-id";
   }
 
-  componentDidMount() {
-    const { containerId } = this;
+  defaultState(containerWidth) {
     const { defaultLeftWidth, defaultRightWidth, defaultRatio } = this.props;
-
-    this.containerEle = document.getElementById(containerId);
-    const containerWidth = this.containerEle.offsetWidth;
 
     let ratio = defaultRatio;
     if (defaultLeftWidth) {
@@ -46,25 +45,30 @@ class Container extends React.PureComponent {
       ratio = 100 - (defaultRightWidth / containerWidth) * 100;
     }
 
-    this.setState({ ratio });
+    this.setState({ ratio, initialRender: false });
   }
+
   componentWillUnmount() {
     document.removeEventListener(MOUSE_UP_EVENT, this.handleDragFinish);
     document.removeEventListener(MOUSE_MOVE_EVENT, this.handleMouseMove);
   }
 
   mousePositionOffsetContainerLeft = mousePosition => {
-    const { left: containerOffset } = this.containerEle.getBoundingClientRect();
-    return mousePosition - containerOffset;
+    const {
+      x: containerOffset
+    } = this.containerRef.current.getBoundingClientRect();
+		return mousePosition - containerOffset;
   };
 
   meetContainerConstrains = mousePosition => {
-    const { left, right } = this.containerEle.getBoundingClientRect();
+    const { x, width } = this.containerRef.current.getBoundingClientRect();
+    const left = x;
+    const right = x + width
     return mousePosition >= left && mousePosition <= right;
   };
 
   meetAllConstraints = (mousePosition, mousePositionNoOffset) => {
-    const { ratio } = this.state;
+    const { ratio, containerWidth } = this.state;
     const {
       leftMaxWidth,
       rightMaxWidth,
@@ -72,7 +76,6 @@ class Container extends React.PureComponent {
       rightMinWidth
     } = this.props;
 
-    const containerWidth = this.containerEle.offsetWidth;
     const dividerPosition = (containerWidth * ratio) / 100;
 
     const isMeetLeftMax = checkLimit(ratio, leftMaxWidth, containerWidth);
@@ -114,9 +117,9 @@ class Container extends React.PureComponent {
     );
   };
 
-  handleMouseMove = event => {
+  handleMouseMovePure = event => {
     const { clientX } = event;
-    const { isDrag } = this.state;
+    const { isDrag, containerWidth } = this.state;
     const { onChange } = this.props;
 
     const mousePosition = this.mousePositionOffsetContainerLeft(clientX);
@@ -126,8 +129,6 @@ class Container extends React.PureComponent {
       isDrag &&
       this.meetAllConstraints(mousePosition, mousePositionNoOffset)
     ) {
-      const containerWidth = this.containerEle.offsetWidth;
-
       const ratio = (mousePosition / containerWidth) * 100;
       onChange(onChangeOutput(ratio, containerWidth));
       this.setState({ ratio });
@@ -149,7 +150,13 @@ class Container extends React.PureComponent {
     onStart();
   };
 
-  handleResize = containerWidth => this.setState({ containerWidth });
+  handleResize = containerWidth => {
+    const { initialRender } = this.state;
+    if (initialRender) {
+      this.defaultState(containerWidth);
+    }
+    this.setState({ containerWidth });
+  };
 
   renderResizeDetector = () => {
     const { handleResize } = this;
@@ -165,6 +172,7 @@ class Container extends React.PureComponent {
 
     return (
       <Panels
+        ref={this.myInput}
         children={children}
         ratio={ratio}
         handleDragStart={handleDragStart}
@@ -175,11 +183,16 @@ class Container extends React.PureComponent {
 
   render() {
     const { containerId, renderPanels, renderResizeDetector } = this;
+    const { initialRender } = this.state;
     const { height, containerStyle } = this.props;
     return (
-      <ContainerDiv id={containerId} style={{ height, ...containerStyle }}>
+      <ContainerDiv
+        id={containerId}
+        style={{ height, ...containerStyle }}
+        ref={this.containerRef}
+      >
         {renderResizeDetector()}
-        {renderPanels()}
+        {!initialRender && renderPanels()}
       </ContainerDiv>
     );
   }

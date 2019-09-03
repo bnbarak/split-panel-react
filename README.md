@@ -73,7 +73,7 @@ Left panel default width in pixels
 
 Right panel default width in pixels
 
-##### defaultRatio ([number] default: `null`)
+##### defaultRatio ([number] default: `50`)
 
 Default ration between the two side. Scale: 1-100;
 Example: `40` will set the width of the left panel to 40% of the container

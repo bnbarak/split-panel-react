@@ -12,7 +12,7 @@ export const onChangeOutput = (ratio, containerWidth) => ({
   containerWidth,
   leftWidth: ratio * containerWidth / 100,
   rightWidth: containerWidth - ratio * containerWidth / 100,
-})
+});
 
 
 export const MOUSE_UP_EVENT = 'mouseup';

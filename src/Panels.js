@@ -1,15 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-const Divider = styled.div`
-  position: absolute;
-  left: 30%;
-  top: 0;
-  width: 2px;
-  background-color: black;
-  height: 100%;
-  cursor: col-resize;
-`;
+import Divider from "./Divider";
 
 const Panel = styled.div`
   display: inline-block;
@@ -18,18 +9,13 @@ const Panel = styled.div`
 `;
 
 class Panels extends React.PureComponent {
-  dividerId = "some-id-2";
-
   renderDivider = () => {
-    const { dividerId } = this;
     const { ratio, handleDragStart, dividerStyle } = this.props;
-    const left = `${ratio}% `;
     return (
       <Divider
-        id={dividerId}
-        onMouseDown={handleDragStart}
-        style={{ ...dividerStyle, left }}
-        onClick={e => e.preventDefault()}
+        ratio={ratio}
+        handleDragStart={handleDragStart}
+        dividerStyle={dividerStyle}
       />
     );
   };
