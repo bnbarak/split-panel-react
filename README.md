@@ -1,6 +1,10 @@
-# Example
 
-[See example](https://bnbarak.github.io/split-panel)
+
+# About
+
+An easy to use react split panel component with flexible constrains. 
+
+[examples](https://bnbarak.github.io/split-panel)
 
 # Installation
 

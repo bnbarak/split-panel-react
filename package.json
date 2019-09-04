@@ -1,7 +1,7 @@
 {
   "name": "split-panel-react",
   "main": "lib/index.js",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "author": "bnbarak",
   "url": "https://github.com/bnbarak/split-panel",
   "scripts": {
