@@ -126,8 +126,8 @@ Divider width in pixels. For accuracy, indicate the divider width if changed in 
   Here the `leftMinWidth` is bigger than the `leftMaxWidth`
 
 ```javascript
-<SplitPane leftMaxWidth={200} leftMinWidth={300}>
+<SplitPanel leftMaxWidth={200} leftMinWidth={300}>
   <div>a</div>
   <div>b</div>
-</SplitPane>
+</SplitPanel>
 ```
