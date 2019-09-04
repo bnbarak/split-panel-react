@@ -10,10 +10,9 @@ export const checkLimit = (ratio, maxWidth, containerWidth, flip = true) => {
 export const onChangeOutput = (ratio, containerWidth) => ({
   ratio,
   containerWidth,
-  leftWidth: ratio * containerWidth / 100,
-  rightWidth: containerWidth - ratio * containerWidth / 100,
+  leftWidth: (ratio * containerWidth) / 100,
+  rightWidth: containerWidth - (ratio * containerWidth) / 100
 });
 
-
-export const MOUSE_UP_EVENT = 'mouseup';
-export const MOUSE_MOVE_EVENT = 'mousemove';
+export const MOUSE_UP_EVENT = "mouseup";
+export const MOUSE_MOVE_EVENT = "mousemove";

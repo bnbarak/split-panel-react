@@ -9,7 +9,7 @@
 # Usage
 
 ```javascript
-import SplitPanel from "SplitPanel";
+import SplitPane from 'split-panel-react';
 ```
 
 ```javascript

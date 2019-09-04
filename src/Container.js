@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import debounce from "lodash/debounce";
 import ReactResizeDetector from "react-resize-detector";
+import { MOUSE_MOVE_EVENT, MOUSE_UP_EVENT } from "Utils";
 import { checkLimit, onChangeOutput } from "./utils";
 import Panels from "./Panels";
-import { MOUSE_MOVE_EVENT, MOUSE_UP_EVENT } from "Utils";
 
 const ContainerDiv = styled.div`
   position: relative;
@@ -57,13 +57,13 @@ class Container extends React.PureComponent {
     const {
       x: containerOffset
     } = this.containerRef.current.getBoundingClientRect();
-		return mousePosition - containerOffset;
+    return mousePosition - containerOffset;
   };
 
   meetContainerConstrains = mousePosition => {
     const { x, width } = this.containerRef.current.getBoundingClientRect();
     const left = x;
-    const right = x + width
+    const right = x + width;
     return mousePosition >= left && mousePosition <= right;
   };
 
