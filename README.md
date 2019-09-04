@@ -79,8 +79,16 @@ Right panel default width in pixels
 
 ##### defaultRatio ([number] default: `50`)
 
-Default ration between the two side. Scale: 1-100;
+Default ration between the two side, scale: 1-100.
 Example: `40` will set the width of the left panel to 40% of the container
+
+##### maxRatio ([number] default: null`)
+
+The maximum ratio between the left and the right panels, scale: 1-100. [example](https://bnbarak.github.io/split-panel/?path=/story/constrains--min-ratio)
+
+##### minRatio ([number] default: `50`)
+
+The minimum ratio between the left and the right panels, scale: 1-100. [example](https://bnbarak.github.io/split-panel/?path=/story/constrains--max-ratio)
 
 ##### height ([number] default: `null`)
 
@@ -105,6 +113,11 @@ A callback being fire when on mouse up event from the divider.
 ##### onChange: ([object] default: `({ratio, containerWidth, leftWidth, rightWisth) => {}`)
 
 A callback being fire when the divider moves.
+
+##### dividerWidth ([number] default: `2`)
+
+For accuracy, indicate the divider width if changed in dividerStyle. 
+
 
 ## Q&A
 

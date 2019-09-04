@@ -35,7 +35,12 @@ class Container extends React.PureComponent {
   }
 
   defaultState(containerWidth) {
-    const { defaultLeftWidth, defaultRightWidth, defaultRatio } = this.props;
+    const {
+      defaultLeftWidth,
+      defaultRightWidth,
+      defaultRatio,
+      onChange
+    } = this.props;
 
     let ratio = defaultRatio;
     if (defaultLeftWidth) {
@@ -46,6 +51,7 @@ class Container extends React.PureComponent {
     }
 
     this.setState({ ratio, initialRender: false });
+    onChange(onChangeOutput(ratio, containerWidth));
   }
 
   componentWillUnmount() {
@@ -65,6 +71,18 @@ class Container extends React.PureComponent {
     const left = x;
     const right = x + width;
     return mousePosition >= left && mousePosition <= right;
+  };
+
+  meetRatioMaxConstrains = () => {
+    const { maxRatio } = this.props;
+    const { ratio } = this.state;
+    return !maxRatio || (maxRatio && ratio < maxRatio);
+  };
+
+  meetRatioMinConstrains = () => {
+    const { minRatio } = this.props;
+    const { ratio } = this.state;
+    return !minRatio || (minRatio && ratio > minRatio);
   };
 
   meetAllConstraints = (mousePosition, mousePositionNoOffset) => {
@@ -107,12 +125,20 @@ class Container extends React.PureComponent {
       isMeetRightMax || (canMoveRight && !isMeetRightMax);
     const rightMinConstraints =
       isMeetRightMin || (canMoveLeft && !isMeetRightMin);
+    const isMeetMaxRatioConstrains =
+      this.meetRatioMaxConstrains() ||
+      (canMoveLeft && !this.meetRatioMaxConstrains());
+    const isMeetMinRatioConstrains =
+      this.meetRatioMinConstrains() ||
+      (canMoveRight && !this.meetRatioMinConstrains());
 
     return (
       leftMaxConstraints &&
       leftMinConstraints &&
       rightMaxConstraints &&
       rightMinConstraints &&
+      isMeetMaxRatioConstrains &&
+      isMeetMinRatioConstrains &&
       this.meetContainerConstrains(mousePositionNoOffset)
     );
   };
@@ -144,18 +170,22 @@ class Container extends React.PureComponent {
     }
   };
 
-  handleDragStart = () => {
+  handleDragStart = event => {
+    event.preventDefault();
     const { onStart } = this.props;
     this.setState({ isDrag: true });
     onStart();
   };
 
   handleResize = containerWidth => {
-    const { initialRender } = this.state;
+    const { dividerWidth, onChange } = this.props;
+    const { initialRender, ratio } = this.state;
     if (initialRender) {
-      this.defaultState(containerWidth);
+      return this.defaultState(containerWidth - dividerWidth);
     }
-    this.setState({ containerWidth });
+    this.setState({ containerWidth: containerWidth - dividerWidth }, () =>
+      onChange(onChangeOutput(ratio, containerWidth))
+    );
   };
 
   renderResizeDetector = () => {
@@ -172,7 +202,7 @@ class Container extends React.PureComponent {
 
     return (
       <Panels
-        ref={this.myInput}
+        ref={this.panelRef}
         children={children}
         ratio={ratio}
         handleDragStart={handleDragStart}
@@ -203,6 +233,8 @@ Container.defaultProps = {
   leftMinWidth: null,
   rightMaxWidth: null,
   rightMinWidth: null,
+  maxRatio: null,
+  minRatio: null,
   defaultLeftWidth: null,
   defaultRightWidth: null,
   defaultRatio: 50,
@@ -211,7 +243,8 @@ Container.defaultProps = {
   dividerStyle: {},
   onStart: () => {},
   onFinish: () => {},
-  onChange: () => {}
+  onChange: () => {},
+  dividerWidth: 2
 };
 
 export default Container;

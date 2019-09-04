@@ -33,11 +33,12 @@ const H3 = styled.h3`
 `;
 
 function App(props) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ratio: 0});
   const onStart = () => console.log("start");
   const onFinish = () => console.log("finish");
   const onChange = details => setData(details);
 
+  const { ratio } = data;
   return (
     <AppContainer className="App">
       <Json id="json-pretty" data={props} />
@@ -48,8 +49,12 @@ function App(props) {
         onFinish={onFinish}
         onChange={onChange}
       >
-        <Child style={{ background: "#eee" }}>Left side</Child>
-        <Child style={{ background: "#CFD8DC" }}>Right side</Child>
+        <Child style={{ background: "#eee" }}>
+          Left side %{ratio.toFixed(1)}
+        </Child>
+        <Child style={{ background: "#CFD8DC" }}>
+          Right side %{100 - ratio.toFixed(1)}
+        </Child>
       </Container>
     </AppContainer>
   );
