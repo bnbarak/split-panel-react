@@ -1,9 +1,9 @@
 {
   "name": "split-panel-react",
   "main": "lib/index.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "bnbarak",
-  "url": "https://github.com/bnbarak/split-panel",
+  "homepage": "https://github.com/bnbarak/split-panel",
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "test": "./node_modules/jest/bin/jest.js",
