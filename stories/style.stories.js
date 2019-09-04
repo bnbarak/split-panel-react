@@ -17,6 +17,7 @@ storiesOf("Style", module).add("Container", () => (
 
 storiesOf("Style", module).add("Divider", () => (
   <App
+		dividerWidth={4}
     dividerStyle={{
       background: "red",
       width: "4px",
