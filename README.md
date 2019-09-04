@@ -4,7 +4,7 @@
 
 # Installation
 
-`npm i split-panel`
+`npm i split-panel-react`
 
 # Usage
 
