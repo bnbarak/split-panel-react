@@ -102,15 +102,15 @@ An object to style the container, [example](https://bnbarak.github.io/split-pane
 
 An object to style the divider, [example](https://bnbarak.github.io/split-panel/?path=/story/style--divider)
 
-##### onStart ([object] default: `() => {}`)
+##### onStart ([function] default: `() => {}`)
 
 A callback being fire when the divider starts moving
 
-##### onFinish ([object] default: `() => {}`)
+##### onFinish ([function] default: `() => {}`)
 
 A callback being fire when on mouse up event from the divider
 
-##### onChange: ([object] default: `({ratio, containerWidth, leftWidth, rightWisth) => {}`)
+##### onChange: ([function] default: `({ratio, containerWidth, leftWidth, rightWisth) => {}`)
 
 A callback being fire when the divider moves.
 
