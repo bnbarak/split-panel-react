@@ -42,9 +42,8 @@ class Container extends React.PureComponent {
       onChange
     } = this.props;
 
-
     let ratio = defaultRatio;
-		if (defaultLeftWidth) {
+    if (defaultLeftWidth) {
       ratio = (defaultLeftWidth / containerWidth) * 100;
     }
     if (defaultRightWidth) {

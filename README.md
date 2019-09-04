@@ -13,7 +13,7 @@ An easy to use react split panel component with flexible constrains.
 # Usage
 
 ```javascript
-import SplitPane from 'split-panel-react';
+import SplitPanel from 'split-panel-react';
 ```
 
 ```javascript
