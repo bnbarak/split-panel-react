@@ -4,7 +4,7 @@
 
 An easy to use react split panel component with flexible constrains. 
 
-[examples](https://bnbarak.github.io/split-panel)
+[examples](https://bnbarak.github.io/split-panel-react)
 
 # Installation
 
